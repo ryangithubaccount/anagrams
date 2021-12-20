@@ -15,8 +15,7 @@ class word_list:
                 abs_file_path = os.path.join(script_dir, rel_path)
                 temp = []
                 f = open(abs_file_path, 'r')
-                for line in f:
-                    temp.append(f.readline()[:-1])
+                temp = f.readlines()
                 f.close()
                 self.lists[letter1 + letter2] = temp
 
@@ -24,9 +23,9 @@ class word_list:
         word = word.lower()
         try:
             for i in self.lists[word[:2]]:
-                if i == word:
+                if i[:-1] == word:
                     return True
-                if i > word:
+                if i[:-1] > word:
                     return False
             return False
         except KeyError:
