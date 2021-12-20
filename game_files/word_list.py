@@ -1,6 +1,10 @@
 import os
 
 class word_list:
+    # Making a list of valid words
+    # The "list" is a dictionary that is indexed by keys of two letters
+    # ie) the keys are 'aa', 'ab', 'ac', ... 'zy', 'zz'
+    # For each key, it gives the words that start with these letters
     def __init__(self):
         self.lists = {}
         alphabet = 'abcdefghijklmnopqrstuvwxyz'

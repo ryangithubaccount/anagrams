@@ -1,4 +1,5 @@
 class scrabble_board:
+    # Making a scrabble board with certain indexing
     def __init__(self):
         self.board = {}
         self.board_status = {}

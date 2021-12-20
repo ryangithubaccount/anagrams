@@ -5,6 +5,7 @@ import bag as bag
 import random
 
 class game:
+    # A basic set-up of a scrabble game
     def __init__(self):
         self.board = scrabble_board.scrabble_board()
         self.word_list = word_list.word_list()
@@ -31,12 +32,14 @@ class game:
         self.tile_scores['_'] = 0
 
     def score_word(self, word):
+        # Given a word, score based on Scrabble point values
         score = 0
         for i in word:
             score += self.tile_scores[i]
         return score
 
     def generate_possible_words(self):
+        # Finds possible permutations and tests if they are valid words
         hand = self.hand.get_letters()
         possible_permutations = []
         for i in range(2, len(hand) + 1):
@@ -48,6 +51,7 @@ class game:
         return result
 
     def generate_possible_words2(self):
+        # My attempt at fitting on the board (doesn't work lol)
         available = self.board.get_available_spots()
         hand = self.get_hand()
         possible_permutations = []
@@ -75,6 +79,7 @@ class game:
         return result
     
     def best_word_in_hand(self):
+        # Goes through possible words and finds the best scoring one
         words = self.generate_possible_words()
         best_word = ""
         max = 0
@@ -92,6 +97,7 @@ class game:
         return self.word_list.get_list()
 
 def generate_permutations(tiles, num):
+    # Uses recursion to generate possible permutations
     if num == 1:
         return tiles
     else:
@@ -103,6 +109,7 @@ def generate_permutations(tiles, num):
     return result
 
 def run_game():
+    # Some testing that I was doing at running the game
     new_game = game()
     hand = new_game.get_hand()
     print(hand)

@@ -1,5 +1,7 @@
 import random
 class bag:
+    # The bag of tiles for a scrabble game
+    # The numbers are how many of each tile there are
     def __init__(self):
         self.tiles = []
         self.tiles += ['A'] * 9

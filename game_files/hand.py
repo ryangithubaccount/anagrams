@@ -1,4 +1,5 @@
 class hand:
+    # A scrabble hand (7 tiles usually)
     def __init__(self, s):
         self.tiles = []
         for i in s:
