@@ -1,0 +1,43 @@
+/* -- TEXT -- */
+body {
+    font-family: "Karla", sans-serif;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 20px;
+    text-transform: lowercase;
+    /* font-variant: small-caps; */
+  }
+  
+  h1 {
+    font-weight: 400;
+    font-size: 40px;
+    text-transform: none;
+    font-variant: none;
+    color: rgba(255, 255, 255, 1);
+    position: relative;
+    left: 5%;
+  }
+  
+  a {
+    color: rgba(255, 255, 255, 1);
+  }
+  
+  /* -- CONTAINERS + GRID -- */
+  body {
+    margin: 0;
+    background: #222;
+  }
+  
+  /* Main container */
+  #root {
+    position: absolute;
+    width: 95%;
+    max-width: 1200px;
+    height: 95%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  #content {
+      padding-left: 6%;
+  }
