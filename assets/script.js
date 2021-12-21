@@ -2,20 +2,7 @@
 function start() {
     console.log("game started");
 }
-
-function timer() {
-    var counter = 4;
-    var myTimer = setInterval(function() {
-      document.getElementById("timer").innerHTML = counter;
-      counter--;
-      if (counter < 0) {
-        clearInterval(myTimer);
-        document.getElementById("timer").style.color = "red";
   
-        // do anything then time is up. 
-        window.location.href = 'endgame.html'
-      }
-    }, 1000);
+  function testHand() {
+      return ['a', 'b', 'c', 'd', 'e', 'f'];
   }
-  timer();
-  

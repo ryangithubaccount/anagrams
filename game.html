@@ -16,5 +16,15 @@
             </div>
 		</div>
 	</body>
-    <script type="text/javascript" src="assets/script.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+          $.ajax({
+            type: "POST",
+            url: "game_files/anagrams.py",
+            data: { param: text}
+        }).done(function( o ) {
+            print("hi")
+            // do something
+        });
+    </script>
+    <script type="text/javascript" src="assets/game.js"></script>
 </html>
