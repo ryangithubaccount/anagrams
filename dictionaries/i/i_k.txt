@@ -1,6 +1,6 @@
-ikat
-ikats
-ikebana
-ikebanas
-ikon
-ikons
+IKAT
+IKATS
+IKEBANA
+IKEBANAS
+IKON
+IKONS

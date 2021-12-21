@@ -1,6 +1,6 @@
-kwacha
-kwachas
-kwanza
-kwanzas
-kwashiorkor
-kwashiorkors
+KWACHA
+KWACHAS
+KWANZA
+KWANZAS
+KWASHIORKOR
+KWASHIORKORS

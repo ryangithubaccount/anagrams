@@ -1,6 +1,6 @@
-izar
-izard
-izards
-izars
-izzard
-izzards
+IZAR
+IZARD
+IZARDS
+IZARS
+IZZARD
+IZZARDS

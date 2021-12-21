@@ -1,5 +1,5 @@
-zlote
-zloties
-zloty
-zlotych
-zlotys
+ZLOTE
+ZLOTIES
+ZLOTY
+ZLOTYCH
+ZLOTYS

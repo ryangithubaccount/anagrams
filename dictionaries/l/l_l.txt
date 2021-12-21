@@ -1,4 +1,4 @@
-llama
-llamas
-llano
-llanos
+LLAMA
+LLAMAS
+LLANO
+LLANOS

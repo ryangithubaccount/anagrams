@@ -17,10 +17,10 @@ class word_list:
                 f = open(abs_file_path, 'r')
                 temp = f.readlines()
                 f.close()
-                self.lists[letter1 + letter2] = temp
+                self.lists[letter1.upper() + letter2.upper()] = temp
 
     def check_if_valid(self, word):
-        word = word.lower()
+        word = word.strip()
         try:
             for i in self.lists[word[:2]]:
                 if i[:-1] == word:

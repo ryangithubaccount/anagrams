@@ -1,6 +1,6 @@
-ctenidia
-ctenoid
-ctenophoran
-ctenophorans
-ctenophore
-ctenophores
+CTENIDIA
+CTENOID
+CTENOPHORAN
+CTENOPHORANS
+CTENOPHORE
+CTENOPHORES

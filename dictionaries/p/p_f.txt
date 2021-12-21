@@ -1,5 +1,5 @@
-pfennig
-pfennige
-pfennigs
-pfft
-pfui
+PFENNIG
+PFENNIGE
+PFENNIGS
+PFFT
+PFUI

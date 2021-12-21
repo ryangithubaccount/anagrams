@@ -1,6 +1,6 @@
-hryvna
-hryvnas
-hryvnia
-hryvnias
-hryvnya
-hryvnyas
+HRYVNA
+HRYVNAS
+HRYVNIA
+HRYVNIAS
+HRYVNYA
+HRYVNYAS

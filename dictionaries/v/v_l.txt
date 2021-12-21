@@ -1,8 +1,8 @@
-vlei
-vleis
-vlog
-vlogged
-vlogger
-vloggers
-vlogging
-vlogs
+VLEI
+VLEIS
+VLOG
+VLOGGED
+VLOGGER
+VLOGGERS
+VLOGGING
+VLOGS

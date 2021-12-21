@@ -1,2 +1,2 @@
-gjetost
-gjetosts
+GJETOST
+GJETOSTS

@@ -1,3 +1,3 @@
-mnemonic
-mnemonically
-mnemonics
+MNEMONIC
+MNEMONICALLY
+MNEMONICS

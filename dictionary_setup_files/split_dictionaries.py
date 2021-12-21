@@ -13,7 +13,8 @@ for letter1 in alphabet:
         abs_file_path2 = os.path.join(script_dir, rel_path2)
         sub_dictionary = open(abs_file_path2, "w")
         while text and text[1:2] == letter2:
-            sub_dictionary.write(text)
+            # only read in the words with 6 letters or less (7 since we have a newline character)
+            sub_dictionary.write(text.upper())
             text = source.readline()
         sub_dictionary.close()
     source.close()

@@ -1,6 +1,5 @@
 import word_list as word_list
 import hand as hand
-import bag as bag
 import time
 import random
 
@@ -8,11 +7,7 @@ class anagrams:
     # A basic set-up of a scrabble game
     def __init__(self):
         self.word_list = word_list.word_list()
-        self.bag = bag.bag()
-        temp = ''
-        for _ in range(6):
-            temp += self.bag.draw()
-        self.hand = hand.hand(temp)
+        self.hand = hand.hand(6)
         self.score = 0
         self.used_words = []
         self.valid_words = {}
@@ -79,8 +74,10 @@ def generate_permutations(tiles, num):
 game = anagrams()
 print("Welcome to anagrams!")
 start_prompt = input("Press Y to start: ")
-while start_prompt.lower() != 'y':
-    start_prompt = input("Invalid input. Press Y to start: ")
+while start_prompt.upper() != 'Y' and start_prompt.upper() != 'Q':
+    start_prompt = input("Invalid input. Press Y to start, Q to quit: ")
+if start_prompt.upper() == 'Q':
+    exit(0)
 start_time = time.time()
 print("\nSTART")
 while time.time() < start_time + 10:

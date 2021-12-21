@@ -1,8 +1,8 @@
-sferics
-sforzandi
-sforzando
-sforzandos
-sforzato
-sforzatos
-sfumato
-sfumatos
+SFERICS
+SFORZANDI
+SFORZANDO
+SFORZANDOS
+SFORZATO
+SFORZATOS
+SFUMATO
+SFUMATOS
