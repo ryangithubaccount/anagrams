@@ -5,9 +5,11 @@ import random
 
 class anagrams:
     # A basic set-up of a scrabble game
-    def __init__(self):
+    def __init__(self, time, num_tiles):
         self.word_list = word_list.word_list()
-        self.hand = hand.hand(6)
+        self.num_tiles = num_tiles
+        self.time = time
+        self.hand = hand.hand(num_tiles)
         self.score = 0
         self.used_words = []
         self.valid_words = {}
@@ -22,12 +24,8 @@ class anagrams:
                 self.valid_words[word.upper()] = True
                 if len(word) == 3:
                     self.score += 100
-                elif len(word) == 4:
-                    self.score += 400
-                elif len(word) == 5:
-                    self.score += 800
                 else:
-                    self.score += 1200
+                    self.score += 400 * (len(word) - 3)
         except KeyError:
             return
 
@@ -35,7 +33,7 @@ class anagrams:
         # Finds possible permutations and tests if they are valid words
         hand = self.hand.get_letters()
         possible_permutations = []
-        for i in range(3, len(hand) + 1):
+        for i in range(len(hand) - 3, len(hand) + 1):
             possible_permutations += generate_permutations(hand, i)
         result = set()
         for perm in possible_permutations:
@@ -56,6 +54,9 @@ class anagrams:
     
     def get_used_words(self):
         return self.used_words
+    
+    def get_time(self):
+        return self.time
 
 def generate_permutations(tiles, num):
     # Uses recursion to generate possible permutations
@@ -71,16 +72,25 @@ def generate_permutations(tiles, num):
 
 
 
-game = anagrams()
 print("Welcome to anagrams!")
-start_prompt = input("Press Y to start: ")
+
+start_prompt = input("Press Y to start, Q to quit: ")
 while start_prompt.upper() != 'Y' and start_prompt.upper() != 'Q':
     start_prompt = input("Invalid input. Press Y to start, Q to quit: ")
 if start_prompt.upper() == 'Q':
     exit(0)
+
+game_time = input("How much time do you want (10s - 300s): ")
+while not game_time.isnumeric() or int(game_time) < 10 or int(game_time) > 300:
+    game_time = input("Invalid time. How much time do you want (10s - 300s): ")
+num_tiles = input("How many tiles do you want (6 - 10): ")
+while not game_time.isnumeric() or int(num_tiles) < 6 or int(num_tiles) > 10:
+    num_tiles = input("Invalid number of tiles. How many tiles do you want (6 - 10): ")
+game = anagrams(int(game_time), int(num_tiles))
+
 start_time = time.time()
 print("\nSTART")
-while time.time() < start_time + 10:
+while time.time() < start_time + game.get_time():
     print(game.get_hand())
     word = input("Enter a word: ")
     game.score_word(word)
