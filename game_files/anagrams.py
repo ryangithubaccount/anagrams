@@ -90,7 +90,7 @@ while not game_time.isnumeric() or int(game_time) < 10 or int(game_time) > 300:
     game_time = input("Invalid time. How much time do you want (10s - 300s): ")
 num_tiles = input("How many tiles do you want (6 - 9): ")
 while not game_time.isnumeric() or int(num_tiles) < 6 or int(num_tiles) > 10:
-    num_tiles = input("Invalid number of tiles. How many tiles do you want (6 - 10): ")
+    num_tiles = input("Invalid number of tiles. How many tiles do you want (6 - 9): ")
 game = anagrams(int(game_time), int(num_tiles))
 
 start_time = time.time()
