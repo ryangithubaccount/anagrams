@@ -33,7 +33,6 @@ class anagrams:
         # Finds possible permutations and tests if they are valid words
         hand = self.hand.get_letters()
         possible_permutations = generate_permutations(hand, len(hand))
-        print("done")
         for i in possible_permutations:
             for perm in i:
                 if (self.word_list.check_if_valid(perm)):
@@ -78,7 +77,6 @@ def generate_permutations(tiles, num):
     return prev
 
 
-
 print("Welcome to anagrams!")
 
 start_prompt = input("Press Y to start, Q to quit: ")
@@ -90,7 +88,7 @@ if start_prompt.upper() == 'Q':
 game_time = input("How much time do you want (10s - 300s): ")
 while not game_time.isnumeric() or int(game_time) < 10 or int(game_time) > 300:
     game_time = input("Invalid time. How much time do you want (10s - 300s): ")
-num_tiles = input("How many tiles do you want (6 - 10): ")
+num_tiles = input("How many tiles do you want (6 - 9): ")
 while not game_time.isnumeric() or int(num_tiles) < 6 or int(num_tiles) > 10:
     num_tiles = input("Invalid number of tiles. How many tiles do you want (6 - 10): ")
 game = anagrams(int(game_time), int(num_tiles))
