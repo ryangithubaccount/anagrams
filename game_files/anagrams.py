@@ -1,7 +1,6 @@
-import word_list as word_list
-import hand as hand
+import word_list
+import hand
 import time
-import random
 
 class anagrams:
     # A basic set-up of a scrabble game
