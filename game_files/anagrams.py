@@ -19,9 +19,9 @@ class anagrams:
         if len(word) <= 2:
             return
         try:
-            if not self.valid_words[word.upper()]:
+            if not self.valid_words[word]:
                 self.used_words.append(word)
-                self.valid_words[word.upper()] = True
+                self.valid_words[word] = True
                 if len(word) == 3:
                     self.score += 100
                 else:
@@ -32,13 +32,12 @@ class anagrams:
     def generate_possible_words(self):
         # Finds possible permutations and tests if they are valid words
         hand = self.hand.get_letters()
-        possible_permutations = []
-        for i in range(len(hand) - 3, len(hand) + 1):
-            possible_permutations += generate_permutations(hand, i)
-        result = set()
-        for perm in possible_permutations:
-            if (self.word_list.check_if_valid(perm)):
-                self.valid_words[perm] = False
+        possible_permutations = generate_permutations(hand, len(hand))
+        print("done")
+        for i in possible_permutations:
+            for perm in i:
+                if (self.word_list.check_if_valid(perm)):
+                    self.valid_words[perm] = False
     
     def get_hand(self):
         return self.hand.get_letters()
@@ -64,11 +63,19 @@ def generate_permutations(tiles, num):
         return tiles
     else:
         result = []
+        prev = []
+        prev.append(tiles)
+        for i in range(num - 1):
+            prev.append(set())
         for i in range(len(tiles)):
             prev_perm = generate_permutations(tiles[0:i] + tiles[i + 1:], num - 1)
-            for elem in prev_perm:
-                result.append(tiles[i] + elem)
-    return result
+            for j in range(1, len(prev_perm)):
+                for perm in prev_perm[j]:
+                    prev[j].add(perm)
+            for perm in prev_perm[-1]:
+                result.append(tiles[i] + perm)
+        prev.append(result)
+    return prev
 
 
 
@@ -92,11 +99,11 @@ start_time = time.time()
 print("\nSTART")
 while time.time() < start_time + game.get_time():
     print(game.get_hand())
-    word = input("Enter a word: ")
+    word = input("Enter a word: ").upper()
     game.score_word(word)
     print()
 print("END\n")
-print("Congratulations, your final score was: " + str(game.get_score()))
+print("Congratulations, your final score was: " + str(game.get_score()) + "!")
 print("Your valid words were:")
 print(game.get_used_words())
 print("All possible words were:")

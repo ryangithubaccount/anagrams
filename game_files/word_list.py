@@ -20,7 +20,6 @@ class word_list:
                 self.lists[letter1.upper() + letter2.upper()] = temp
 
     def check_if_valid(self, word):
-        word = word.strip()
         try:
             for i in self.lists[word[:2]]:
                 if i[:-1] == word:
