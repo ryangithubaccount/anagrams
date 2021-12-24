@@ -3,14 +3,15 @@
 	<head>
 		<title>Anagrams</title>
 		<link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="{{url_for('static', 'style.css')}}"/>
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}"/>
 	</head>
 	<body>
 		<div id="root">
 			<h1>Anagrams Game</h1>
             <div id="content">
-                <form action="userTyped"></form>
-                <input type="text" id="userTyped">
+                <form method="post">
+                    <input type="text" id="userTyped" placeholder="Enter words">
+                </form>
                 <p>Timer:</p>
                 <div id="timer"></div>
             </div>

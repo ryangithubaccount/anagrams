@@ -11,7 +11,15 @@
             <!-- <button onclick=start()>Start Game</button> -->
             <div id="content">
                 <p>How to Play: form as many words as you can! go go go</p>
-                <a href="{{url_for('game')}}">Start Game</a>
+                <form method="post">
+					<p>How many tiles do you want (6 - 9)?</p>
+                    <input type="text" name="tiles" id="userTyped" placeholder="0"
+							value="{{ request.form['tiles'] }}">
+					<p>How many seconds do you want (10 - 300)?</p>
+					<input type="text" name="seconds" id="userTyped" placeholder="0"
+							value="{{ request.form['seconds'] }}">
+					<button type="submit">Start Game</button>
+                </form>
             </div>
 		</div>
 	</body>
