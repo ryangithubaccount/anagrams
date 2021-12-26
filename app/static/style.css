@@ -161,6 +161,15 @@ input {
   text-align: center;
 }
 
-#all-words {
-  margin-left: 20px;
+.words-list {
+  margin-left: 50px;
+}
+
+#endgame-row {
+  margin-top: 50px;
+  height: 80%;
+}
+
+.end-cols {
+  padding: 40px;
 }

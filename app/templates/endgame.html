@@ -7,24 +7,35 @@
 	</head>
 	<body>
 		<div id="root">
-			<h1>Anagrams Game Ended</h1>
 			<div id="content">
-				<h2>Your final score was:
-					{{final_score}}
-				</h2>
-				<a id="endgame-home-button" href="/">Go Home</a>
 				<div class="row" id="endgame-row">
-					<div>
-						<p>Your typed words were:</p>
-						{% for word in typed_words %}
-							<div class="word">{{word}}</div>
-						{% endfor %}
+					<div class="end-cols">
+						<h1 id="title">Time's Up!</h1>
+						<h2>Final Score: 
+							<span style="color: white;">{{final_score}}</span>
+						</h2>
+						<h2>You got
+							<span style="color: white;">{{num_typed}}</span>
+							anagrams
+						</h2>
+						<br><br>
+						<a id="endgame-home-button" href="/">Go Home</a>
 					</div>
-					<div id="all-words">
-						<p>All possible words were:</p>
-						{% for word in all_words %}
-							<div class="word">{{word}}</div>
-						{% endfor %}	
+
+					<div class="end-cols row">
+						<div class="words-list">
+							<p>YOUR WORDS:</p>
+							{% for word in typed_words %}
+								<div class="word">{{word}}</div>
+							{% endfor %}
+						</div>
+	
+						<div class="words-list">
+							<p>ALL WORDS:</p>
+							{% for word in all_words %}
+								<div class="word">{{word}}</div>
+							{% endfor %}	
+						</div>
 					</div>
 				</div>
 			</div>
