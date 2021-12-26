@@ -12,10 +12,11 @@
                 <form method="post">
                     <input type="text" id="userTyped" placeholder="Enter words">
                 </form>
+				<p>{{hand}}</p>
                 <p>Timer:</p>
                 <div id="timer"></div>
             </div>
 		</div>
 	</body>
-    <script type="text/javascript" src="../assets/game.js"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='game.js')}}"></script>
 </html>
