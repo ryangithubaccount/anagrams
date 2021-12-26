@@ -18,11 +18,20 @@ def index():
 def game():
     hand = game_instance[0].get_hand()
     time = game_instance[0].get_time()
+    score = str(game_instance[0].get_score())
+    typed_words = game_instance[0].get_used_words()
     if request.method == 'POST':
         # add to database 
-        return None
-    return render_template("game.html", time=time, hand=hand)
+        word = request.form['userTyped'].upper()
+        game_instance[0].score_word(word)
+        score = str(game_instance[0].get_score())
+        typed_words = game_instance[0].get_used_words()
+        return render_template("game.html", time=time, hand=hand, score=score, typed_words=typed_words)
+    return render_template("game.html", time=time, hand=hand, score=score, typed_words=typed_words)
 
 @app.route("/endgame", methods=('GET', 'POST'))
 def endgame():
-    return render_template("endgame.html")
+    typed_words = game_instance[0].get_used_words()
+    final_score = str(game_instance[0].get_score())
+    all_words = list(game_instance[0].get_valid_words().keys())
+    return render_template("endgame.html", typed_words=typed_words, final_score=final_score, all_words=all_words)

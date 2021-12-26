@@ -8,9 +8,18 @@
 	<body>
 		<div id="root">
 			<h1>Anagrams Game Ended</h1>
-            <div id="content">
-                <a href="/">Go Home</a>
-            </div>
+			<div id="content">
+				<h2>Your final score was:
+					{{final_score}}
+				</h2>
+				<p>Your typed words were:
+					{{typed_words}}
+				</p>
+				<p>All possible words were:
+					{{all_words}}
+				</p>
+				<a href="/">Go Home</a>
+			</div>
 		</div>
 	</body>
     <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
