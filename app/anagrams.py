@@ -1,5 +1,11 @@
-import word_list
-import hand
+import importlib.util
+spec=importlib.util.spec_from_file_location("word_list","app/word_list.py")
+word_list = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(word_list)
+
+spec=importlib.util.spec_from_file_location("hand","app/hand.py")
+hand = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(hand)
 import time
 
 class anagrams:
