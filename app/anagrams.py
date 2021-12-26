@@ -76,32 +76,34 @@ def generate_permutations(tiles, num):
     return prev
 
 
-print("Welcome to anagrams!")
+# CTRL + '/' will let you uncomment 
 
-start_prompt = input("Press Y to start, Q to quit: ")
-while start_prompt.upper() != 'Y' and start_prompt.upper() != 'Q':
-    start_prompt = input("Invalid input. Press Y to start, Q to quit: ")
-if start_prompt.upper() == 'Q':
-    exit(0)
+# print("Welcome to anagrams!")
 
-game_time = input("How much time do you want (10s - 300s): ")
-while not game_time.isnumeric() or int(game_time) < 10 or int(game_time) > 300:
-    game_time = input("Invalid time. How much time do you want (10s - 300s): ")
-num_tiles = input("How many tiles do you want (6 - 9): ")
-while not game_time.isnumeric() or int(num_tiles) < 6 or int(num_tiles) > 10:
-    num_tiles = input("Invalid number of tiles. How many tiles do you want (6 - 9): ")
-game = anagrams(int(game_time), int(num_tiles))
+# start_prompt = input("Press Y to start, Q to quit: ")
+# while start_prompt.upper() != 'Y' and start_prompt.upper() != 'Q':
+#     start_prompt = input("Invalid input. Press Y to start, Q to quit: ")
+# if start_prompt.upper() == 'Q':
+#     exit(0)
 
-start_time = time.time()
-print("\nSTART")
-while time.time() < start_time + game.get_time():
-    print(game.get_hand())
-    word = input("Enter a word: ").upper()
-    game.score_word(word)
-    print()
-print("END\n")
-print("Congratulations, your final score was: " + str(game.get_score()) + "!")
-print("Your valid words were:")
-print(game.get_used_words())
-print("All possible words were:")
-print(list(game.get_valid_words().keys()))
+# game_time = input("How much time do you want (10s - 300s): ")
+# while not game_time.isnumeric() or int(game_time) < 10 or int(game_time) > 300:
+#     game_time = input("Invalid time. How much time do you want (10s - 300s): ")
+# num_tiles = input("How many tiles do you want (6 - 9): ")
+# while not game_time.isnumeric() or int(num_tiles) < 6 or int(num_tiles) > 10:
+#     num_tiles = input("Invalid number of tiles. How many tiles do you want (6 - 9): ")
+# game = anagrams(int(game_time), int(num_tiles))
+
+# start_time = time.time()
+# print("\nSTART")
+# while time.time() < start_time + game.get_time():
+#     print(game.get_hand())
+#     word = input("Enter a word: ").upper()
+#     game.score_word(word)
+#     print()
+# print("END\n")
+# print("Congratulations, your final score was: " + str(game.get_score()) + "!")
+# print("Your valid words were:")
+# print(game.get_used_words())
+# print("All possible words were:")
+# print(list(game.get_valid_words().keys()))
