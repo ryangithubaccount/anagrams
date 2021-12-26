@@ -3,15 +3,15 @@
 	<head>
 		<title>Anagrams</title>
 		<link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="../assets/style.css"/>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
 	</head>
 	<body>
 		<div id="root">
 			<h1>Anagrams Game Ended</h1>
             <div id="content">
-                <a href="index.html">Go Home</a>
+                <a href="/">Go Home</a>
             </div>
 		</div>
 	</body>
-    <script type="text/javascript" src="../assets/script.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
 </html>

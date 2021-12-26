@@ -8,7 +8,7 @@ function timer() {
         document.getElementById("timer").style.color = "red";
   
         // do anything then time is up. 
-        window.location.href = 'endgame.html'
+        window.location.href = "endgame"
       }
     }, 1000);
   }

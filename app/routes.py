@@ -22,3 +22,7 @@ def game():
         # add to database 
         return None
     return render_template("game.html", time=time, hand=hand)
+
+@app.route("/endgame", methods=('GET', 'POST'))
+def endgame():
+    return render_template("endgame.html")

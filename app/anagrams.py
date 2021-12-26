@@ -9,7 +9,7 @@ spec.loader.exec_module(hand)
 import time
 
 class anagrams:
-    # A basic set-up of a scrabble game
+    # A basic set-up of a anagrams game
     def __init__(self, time, num_tiles):
         self.word_list = word_list.word_list()
         self.num_tiles = num_tiles
