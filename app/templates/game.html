@@ -10,7 +10,7 @@
 			<h1>Anagrams Game</h1>
             <div id="content">
                 <form method="post">
-                    <input type="text" id="userTyped" placeholder="Enter words">
+                    <input type="text" name="userTyped" placeholder="Enter words">
                 </form>
 				<!-- <p>{{hand}}</p> -->
 				<div id="letter-container">
@@ -18,6 +18,8 @@
 					<div class="letter">{{letter}}</div>
 					{% endfor %}
 				</div>
+				<div>{{typed_words}}</div>
+				<p>Score: {{score}}</p>
 				<p>Timer:</p>
                 <div id="timer"></div>
             </div>
