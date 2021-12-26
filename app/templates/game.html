@@ -12,8 +12,13 @@
                 <form method="post">
                     <input type="text" id="userTyped" placeholder="Enter words">
                 </form>
-				<p>{{hand}}</p>
-                <p>Timer:</p>
+				<!-- <p>{{hand}}</p> -->
+				<div id="letter-container">
+					{% for letter in hand %}
+					<div class="letter">{{letter}}</div>
+					{% endfor %}
+				</div>
+				<p>Timer:</p>
                 <div id="timer"></div>
             </div>
 		</div>

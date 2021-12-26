@@ -10,7 +10,9 @@
 			<h1>Anagrams Home</h1>
             <!-- <button onclick=start()>Start Game</button> -->
             <div id="content">
-                <p>How to Play: form as many words as you can! go go go</p>
+				<h2>How to Play</h2>
+                <p>form as many words as you can! go go go</p>
+				<h2>Settings</h2>
                 <form method="post">
 					<p>How many tiles do you want (6 - 9)?</p>
                     <input type="text" name="tiles" id="userTyped" value="6"
@@ -18,6 +20,7 @@
 					<p>How many seconds do you want (30 - 90)?</p>
 					<input type="text" name="seconds" id="userTyped" value="60"
 							value="{{ request.form['seconds'] }}">
+					<br>
 					<button type="submit">Start Game</button>
                 </form>
             </div>
