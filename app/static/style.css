@@ -3,7 +3,7 @@ body {
     font-family: "Karla", sans-serif;
     color: rgba(255, 255, 255, 0.5);
     font-size: 20px;
-    text-transform: lowercase;
+    /* text-transform: lowercase; */
     /* font-variant: small-caps; */
 }
 
@@ -44,11 +44,14 @@ body {
 
 .letter {
   background-color: burlywood;
-  color: white;
-  border-radius: 3px;
-  padding: 10px;
-  width: 30px;
-  margin: 20px;
+  color: black;
+  font-variant: small-caps;
+  font-weight: 900;
+  font-size: 48px;
+  border-radius: 8px;
+  padding: 7px;
+  width: 60px;
+  margin: 10px;
   text-align: center;
 }
 
@@ -57,7 +60,7 @@ body {
   flex-direction: row;
 }
 
-button {
+button, #endgame-home-button{
   border:#FFFFFF;
   border-radius:3px;
   box-sizing: border-box;
@@ -72,7 +75,7 @@ button {
   margin-top: 20px;
 }
 
-button:hover{
+button:hover,#endgame-home-button:hover{
   cursor: pointer;
   color:#000000;
   background-color:#555555;
@@ -83,7 +86,43 @@ input {
   color: white;
   font-family: 'Karla';
   padding: 5px;
-  width: 100px;
+  width: 100%;
   border-radius: 3px;
   border: none;
+}
+
+.home-input {
+  width: 50px;
+}
+
+.game-input {
+  font-size: 30px;
+  border-radius: 8px;
+  height: 50px;
+}
+
+.game-input::placeholder {
+  font-size: 30px;
+}
+
+.game-input:focus, input:focus{
+  outline: none;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.word {
+  background-color:beige;
+  color: black;
+  border-radius: 8px;
+  padding: 7px;
+  margin: 10px;
+  text-align: center;
+}
+
+#all-words {
+  margin-left: 20px;
 }

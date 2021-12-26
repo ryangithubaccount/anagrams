@@ -12,13 +12,21 @@
 				<h2>Your final score was:
 					{{final_score}}
 				</h2>
-				<p>Your typed words were:
-					{{typed_words}}
-				</p>
-				<p>All possible words were:
-					{{all_words}}
-				</p>
-				<a href="/">Go Home</a>
+				<a id="endgame-home-button" href="/">Go Home</a>
+				<div class="row" id="endgame-row">
+					<div>
+						<p>Your typed words were:</p>
+						{% for word in typed_words %}
+							<div class="word">{{word}}</div>
+						{% endfor %}
+					</div>
+					<div id="all-words">
+						<p>All possible words were:</p>
+						{% for word in all_words %}
+							<div class="word">{{word}}</div>
+						{% endfor %}	
+					</div>
+				</div>
 			</div>
 		</div>
 	</body>

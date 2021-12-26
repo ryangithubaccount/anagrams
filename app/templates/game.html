@@ -8,20 +8,26 @@
 	<body>
 		<div id="root">
 			<h1>Anagrams Game</h1>
-            <div id="content">
-                <form method="post">
-                    <input type="text" name="userTyped" placeholder="Enter words" autofocus="autofocus">
-                </form>
-				<!-- <p>{{hand}}</p> -->
-				<div id="letter-container">
-					{% for letter in hand %}
-					<div class="letter">{{letter}}</div>
+            <div id="content" class="row">
+				<div class="col-8">
+					<form method="post">
+						<input type="text" name="userTyped" placeholder="Enter words" autofocus="autofocus" class="game-input">
+					</form>
+					<!-- <p>{{hand}}</p> -->
+					<div id="letter-container">
+						{% for letter in hand %}
+						<div class="letter">{{letter}}</div>
+						{% endfor %}
+					</div>
+					{% for word in typed_words %}
+						<div class="word">{{word}}</div>
 					{% endfor %}
 				</div>
-				<div>{{typed_words}}</div>
-				<p>Score: {{score}}</p>
-				<p>Timer:</p>
-                <div id="timer"></div>
+				<div class="col-3" style="padding-left: 30px;">
+					<p>Timer:</p>
+					<div id="timer">60s </div>
+					<p>Score: <h1>{{score}}</h1></p>
+				</div>
             </div>
 		</div>
 	</body>
