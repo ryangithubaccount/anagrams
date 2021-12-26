@@ -4,24 +4,32 @@
 		<title>Anagrams</title>
 		<link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+		<link rel="stylesheet" type="text/css" href="../static/style.css"/>
 	</head>
 	<body>
 		<div id="root">
-			<h1>Anagrams Home</h1>
+			<!-- <h1>Anagrams Home</h1> -->
             <!-- <button onclick=start()>Start Game</button> -->
-            <div id="content">
-				<h2>How to Play</h2>
-                <p>form as many words as you can! go go go</p>
-				<h2>Settings</h2>
+			<img id="background-img" src="{{ url_for('static', filename='anagrams-no.png') }}" alt="anagrams tiles image">
+			<!-- <img id="background-img" src="../static/anagrams-no.png" alt="anagrams tiles image"> -->
+			<div id="home-content">
+				<!-- <a href="">ABOUT</a> -->
+				<h1 id="title">Anagrams</h1>
+				<h2 id="subtitle">WEB VERSION</h2>
+                <p>Type as many valid words as you can using the given letters!<br>
+					Only words of 3 or more letters are counted.</p>
                 <form method="post">
-					<p>How many tiles do you want (6 - 9)?</p>
-                    <input type="text" name="tiles" class="home-input" value="6"
-							value="{{ request.form['tiles'] }}">
-					<p>How many seconds do you want (30 - 90)?</p>
-					<input type="text" name="seconds" class="home-input" value="60"
-							value="{{ request.form['seconds'] }}">
-					<br>
-					<button type="submit">Start Game</button>
+					<div class="row" id="home-row">
+						<p>TILES:</p>
+						<!-- <p>How many tiles do you want (6 - 9)?</p> -->
+						<input type="text" name="tiles" class="home-input" value="6"
+								value="{{ request.form['tiles'] }}">
+						<!-- <p>How many seconds do you want (30 - 90)?</p> -->
+						<p>TIME:</p>
+						<input type="text" name="seconds" class="home-input" value="60"
+								value="{{ request.form['seconds'] }}">
+						<button type="submit" id="home-button">Start Game</button>
+					</div>
                 </form>
             </div>
 		</div>
