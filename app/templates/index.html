@@ -16,19 +16,20 @@
 				<!-- <a href="">ABOUT</a> -->
 				<h1 id="title">Anagrams</h1>
 				<h2 id="subtitle">WEB VERSION</h2>
-                <p>Type as many valid words as you can using the given letters!<br>
-					Only words of 3 or more letters are counted.</p>
+                <p><b>Type</b> as many valid words as you can using the given letters!<br>
+					Only words of <span style="color:white"><b>3 or more</b></span> letters are counted.</p>
+				<p><span style="color:red">{{error}}</span></p>
                 <form method="post">
 					<div class="row" id="home-row">
-						<p>TILES:</p>
+						<p>TILES (6-9):</p>
 						<!-- <p>How many tiles do you want (6 - 9)?</p> -->
 						<input type="text" name="tiles" class="home-input" value="6"
 								value="{{ request.form['tiles'] }}">
 						<!-- <p>How many seconds do you want (30 - 90)?</p> -->
-						<p>TIME:</p>
+						<p>TIME (30-90):</p>
 						<input type="text" name="seconds" class="home-input" value="60"
 								value="{{ request.form['seconds'] }}">
-						<button type="submit" id="home-button">Start Game</button>
+						<button onclick="loading()" type="submit" id="home-button">Start Game</button>
 					</div>
                 </form>
             </div>

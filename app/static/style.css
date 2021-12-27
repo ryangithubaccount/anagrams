@@ -173,3 +173,21 @@ input {
 .end-cols {
   padding: 40px;
 }
+
+#word-result {
+  height: 40px;
+  padding: 0px;
+  animation: fadeOut 2.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    font-size: 30px;
+  }
+  100% {
+    opacity: 0;
+    font-size: 15px;
+  }
+}

@@ -21,8 +21,9 @@ class anagrams:
         self.generate_possible_words()
 
     def score_word(self, word):
+        # 0 means invalid word, 1 means already used, 2 means valid word
         if len(word) <= 2:
-            return
+            return 0
         try:
             if not self.valid_words[word]:
                 self.used_words.append(word)
@@ -31,8 +32,10 @@ class anagrams:
                     self.score += 100
                 else:
                     self.score += 400 * (len(word) - 3)
+                return 2
+            return 1
         except KeyError:
-            return
+            return 0
 
     def generate_possible_words(self):
         # Finds possible permutations and tests if they are valid words

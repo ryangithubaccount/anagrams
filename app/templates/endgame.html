@@ -32,8 +32,12 @@
 	
 						<div class="words-list">
 							<p>ALL WORDS:</p>
-							{% for word in all_words %}
-								<div class="word">{{word}}</div>
+							{% for word in all_words.keys() %}
+								{% if all_words[word] == True %}
+									<div class="word" style="text-decoration: line-through;">{{word}}</div>
+								{% else %}
+									<div class="word">{{word}}</div>
+								{% endif %}
 							{% endfor %}	
 						</div>
 					</div>
