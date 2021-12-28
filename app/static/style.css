@@ -6,6 +6,7 @@ body {
 }
 
 h1 {
+  padding-left:6%;
   font-weight: 400;
   font-size: 40px;
   text-transform: none;
@@ -165,6 +166,15 @@ input {
   margin-left: 50px;
 }
 
+#words-list-visible {
+  margin-left: 50px;
+}
+
+#words-list-hidden {
+  margin-left: 50px;
+  display: hidden;
+}
+
 #endgame-row {
   margin-top: 50px;
   height: 80%;
@@ -175,8 +185,7 @@ input {
 }
 
 #word-result {
-  height: 40px;
-  padding: 0px;
+  position: absolute;
   animation: fadeOut 2.5s;
   animation-fill-mode: forwards;
 }
@@ -184,10 +193,10 @@ input {
 @keyframes fadeOut {
   0% {
     opacity: 1;
-    font-size: 30px;
+    font-size: 40px;
   }
   100% {
     opacity: 0;
-    font-size: 15px;
+    font-size: 20px;
   }
 }

@@ -14,20 +14,21 @@
 						<input type="text" name="userTyped" placeholder="Enter words" autofocus="autofocus" class="game-input">
 					</form>
 					<!-- <p>{{hand}}</p> -->
-					<div id="letter-container">
-						{% for letter in hand %}
-						<div class="letter">{{letter}}</div>
-						{% endfor %}
-					</div>
 					<div id="word-result">
 						{% if result==0 %}
 							<p style="color:red">Not a valid word</p>
 						{% elif result== 1 %}
 							<p style="color:red">Already used</p>
 						{% elif result==2 %}
-							<p style="color:green">+{{added_score}}</p>
+							<p style="color:greenyellow">+{{added_score}}</p>
 						{% endif %}
 					</div>
+					<div id="letter-container">
+						{% for letter in hand %}
+						<div class="letter">{{letter}}</div>
+						{% endfor %}
+					</div>
+					
 					{% for word in typed_words %}
 						<div class="word">{{word}}</div>
 					{% endfor %}

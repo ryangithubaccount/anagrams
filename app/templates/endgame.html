@@ -30,16 +30,31 @@
 							{% endfor %}
 						</div>
 	
-						<div class="words-list">
+						<div class="words-list-visible">
 							<p>ALL WORDS:</p>
-							{% for word in all_words.keys() %}
+							{% for word in shown_words %}
 								{% if all_words[word] == True %}
 									<div class="word" style="text-decoration: line-through;">{{word}}</div>
 								{% else %}
 									<div class="word">{{word}}</div>
 								{% endif %}
-							{% endfor %}	
+							{% endfor %}
+							<button onclick="show_more()" type="button" id="show-more-btn">Show More</button>
 						</div>
+						
+
+						<div class="words-list-hidden">
+							<p>ALL WORDS:</p>
+							{% for word in hidden_words %}
+								{% if all_words[word] == True %}
+									<div class="word" style="text-decoration: line-through;">{{word}}</div>
+								{% else %}
+									<div class="word">{{word}}</div>
+								{% endif %}
+							{% endfor %}
+							<button onclick="show_less()" type="button" id="show-less-btn" style="display: none;">Show Less</button>
+						</div>
+						
 					</div>
 				</div>
 			</div>

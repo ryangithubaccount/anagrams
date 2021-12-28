@@ -45,4 +45,10 @@ def endgame():
     num_typed = len(typed_words)
     final_score = str(game_instance[0].get_score())
     all_words = game_instance[0].get_valid_words()
-    return render_template("endgame.html", typed_words=typed_words, final_score=final_score, all_words=all_words, num_typed=num_typed)
+    words = list(all_words.keys())
+    shown_words = words
+    hidden_words = []
+    if len(words) > 20:
+        shown_words = words[:20]
+        hidden_words = words[20:]
+    return render_template("endgame.html", typed_words=typed_words, final_score=final_score, all_words=all_words, shown_words=shown_words, hidden_words=hidden_words,  num_typed=num_typed)
