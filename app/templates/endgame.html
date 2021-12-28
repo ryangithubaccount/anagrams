@@ -30,7 +30,7 @@
 							{% endfor %}
 						</div>
 	
-						<div class="words-list-visible">
+						<div id="words-list-visible">
 							<p>ALL WORDS:</p>
 							{% for word in shown_words %}
 								{% if all_words[word] == True %}
@@ -40,25 +40,35 @@
 								{% endif %}
 							{% endfor %}
 							<button onclick="show_more()" type="button" id="show-more-btn">Show More</button>
+							<div id="words-list-hidden">
+								{% for word in hidden_words %}
+									{% if all_words[word] == True %}
+										<div class="word" style="text-decoration: line-through;">{{word}}</div>
+									{% else %}
+										<div class="word">{{word}}</div>
+									{% endif %}
+								{% endfor %}
+								<button onclick="show_less()" type="button" id="show-less-btn" style="display: none;">Show Less</button>
+							</div>
 						</div>
-						
+						<div id="high-score-list">
+							ALL-TIME HIGH SCORES
+							{% for word in high_scores %}
+							<div class="high-score-entry">
+								<p>{{word[0]}}</p>
+								<div id="letter-container">
+									{% for letter in word[1] %}
 
-						<div class="words-list-hidden">
-							<p>ALL WORDS:</p>
-							{% for word in hidden_words %}
-								{% if all_words[word] == True %}
-									<div class="word" style="text-decoration: line-through;">{{word}}</div>
-								{% else %}
-									<div class="word">{{word}}</div>
-								{% endif %}
+									<div class="small-letter">{{letter}}</div>
+									{% endfor %}
+								</div>
+							</div>
 							{% endfor %}
-							<button onclick="show_less()" type="button" id="show-less-btn" style="display: none;">Show Less</button>
 						</div>
-						
 					</div>
 				</div>
 			</div>
 		</div>
 	</body>
-    <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='endgame.js') }}"></script>
 </html>

@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, url_for, flash, redirect, ses
 from app import app
 import time
 import app.anagrams as anagrams
+from app.high_scores import check_high_scores
 
 game_instance = [None]
 
@@ -45,10 +46,14 @@ def endgame():
     num_typed = len(typed_words)
     final_score = str(game_instance[0].get_score())
     all_words = game_instance[0].get_valid_words()
+    
+    high_scores = check_high_scores(int(final_score), game_instance[0].get_hand())
+
     words = list(all_words.keys())
+    words.reverse()
     shown_words = words
     hidden_words = []
-    if len(words) > 20:
-        shown_words = words[:20]
-        hidden_words = words[20:]
-    return render_template("endgame.html", typed_words=typed_words, final_score=final_score, all_words=all_words, shown_words=shown_words, hidden_words=hidden_words,  num_typed=num_typed)
+    if len(words) > 10:
+        shown_words = words[:10]
+        hidden_words = words[10:]
+    return render_template("endgame.html", typed_words=typed_words, final_score=final_score, all_words=all_words, shown_words=shown_words, hidden_words=hidden_words,  num_typed=num_typed, high_scores=high_scores)

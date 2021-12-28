@@ -69,6 +69,19 @@ body {
   text-align: center;
 }
 
+.small-letter {
+  background-color: burlywood;
+  color: black;
+  font-variant: small-caps;
+  font-weight: 900;
+  font-size: 30px;
+  border-radius: 5px;
+  padding: 4px;
+  width: 40px;
+  margin: 7px;
+  text-align: center;
+}
+
 #letter-container {
   display: flex;
   flex-direction: row;
@@ -166,13 +179,24 @@ input {
   margin-left: 50px;
 }
 
+
 #words-list-visible {
+  text-align: center;
   margin-left: 50px;
 }
 
 #words-list-hidden {
+  display: none;
+}
+
+#high-score-list {
   margin-left: 50px;
-  display: hidden;
+  text-align: center;
+}
+
+.high-score-entry {
+  display: flex;
+  flex-direction: row;
 }
 
 #endgame-row {
@@ -190,6 +214,10 @@ input {
   animation-fill-mode: forwards;
 }
 
+.box {
+  height: 80px;
+}
+
 @keyframes fadeOut {
   0% {
     opacity: 1;
@@ -197,6 +225,6 @@ input {
   }
   100% {
     opacity: 0;
-    font-size: 20px;
+    font-size: 30px;
   }
 }
