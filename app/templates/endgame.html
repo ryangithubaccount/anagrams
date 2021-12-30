@@ -9,17 +9,34 @@
 		<div id="root">
 			<div id="content">
 				<div class="row" id="endgame-row">
-					<div class="end-cols">
-						<h1 id="title">Time's Up!</h1>
-						<h2>Final Score: 
-							<span style="color: white;">{{final_score}}</span>
-						</h2>
-						<h2>You got
-							<span style="color: white;">{{num_typed}}</span>
-							anagrams
-						</h2>
-						<br><br>
-						<a id="endgame-home-button" href="/">Go Home</a>
+					<div class="end-cols end-left">
+						<div id="endgame-message">
+							<h1 id="title">Time's Up!</h1>
+							<h2>Final Score: 
+								<span style="color: white;">{{final_score}}</span>
+							</h2>
+							<h2>You got
+								<span style="color: white;">{{num_typed}}</span>
+								anagrams
+							</h2>
+							<br><br>
+							<a id="endgame-home-button" href="/">Go Home</a>
+							<br><br>
+						</div>
+						<div id="high-score-list">
+							ALL-TIME HIGH SCORES
+							{% for word in high_scores %}
+							<div class="high-score-entry">
+								<p>{{word[0]}}</p>
+								<div id="letter-container">
+									{% for letter in word[1] %}
+
+									<div class="small-letter">{{letter}}</div>
+									{% endfor %}
+								</div>
+							</div>
+							{% endfor %}
+						</div>
 					</div>
 
 					<div class="end-cols row">
@@ -30,7 +47,7 @@
 							{% endfor %}
 						</div>
 	
-						<div id="words-list-visible">
+						<div class="words-list" id="words-list-visible">
 							<p>ALL WORDS:</p>
 							{% for word in shown_words %}
 								{% if all_words[word] == True %}
@@ -51,20 +68,7 @@
 								<button onclick="show_less()" type="button" id="show-less-btn" style="display: none;">Show Less</button>
 							</div>
 						</div>
-						<div id="high-score-list">
-							ALL-TIME HIGH SCORES
-							{% for word in high_scores %}
-							<div class="high-score-entry">
-								<p>{{word[0]}}</p>
-								<div id="letter-container">
-									{% for letter in word[1] %}
 
-									<div class="small-letter">{{letter}}</div>
-									{% endfor %}
-								</div>
-							</div>
-							{% endfor %}
-						</div>
 					</div>
 				</div>
 			</div>
