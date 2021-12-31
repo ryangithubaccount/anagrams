@@ -35,6 +35,8 @@ def game():
         if request.form['action'] == 'shuffle':
             hand = game_instance[0].shuffle()
             return render_template("game.html", time=game_time - int(time.time()-session.get('start_time')), hand=hand, score=score, typed_words=typed_words[::-1], num_typed=num_typed, result=3)
+        elif request.form['action'] == 'quit':
+            return redirect(url_for('endgame'))
         else:
             word = request.form['input'].upper()
             result = game_instance[0].score_word(word)

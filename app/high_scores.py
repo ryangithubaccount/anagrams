@@ -24,6 +24,8 @@ def check_high_scores(score, letters):
     f.close()
     for i in range(5):
         if scores[i] == [str(score), hand]:
-            break
+            return scores[:5], i
     # i is the index of it
-    return scores[:5], i
+    return scores[:5], 5
+
+print(check_high_scores(5000, ['A']))
