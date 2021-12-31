@@ -21,3 +21,6 @@ class hand:
 
     def remove_tile(self, tile):
         self.tiles.remove(tile)
+
+    def shuffle(self):
+        random.shuffle(self.tiles)

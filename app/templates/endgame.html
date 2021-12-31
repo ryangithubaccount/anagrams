@@ -25,17 +25,23 @@
 						</div>
 						<div id="high-score-list">
 							ALL-TIME HIGH SCORES
-							{% for word in high_scores %}
+							{% for i in range(5) %}
 							<div class="high-score-entry">
-								<p>{{word[0]}}</p>
 								<div id="letter-container">
-									{% for letter in word[1] %}
-
+									{% for letter in high_scores[i][1] %}
 									<div class="small-letter">{{letter}}</div>
 									{% endfor %}
 								</div>
+								{% if i == success %}
+								<p style="color:aqua">{{high_scores[i][0]}}</p>
+								{% else %}
+								<p>{{high_scores[i][0]}}</p>
+								{% endif %}
 							</div>
 							{% endfor %}
+							{% if success < 5 %}
+								<p>You got a high score!</p>
+							{% endif %}
 						</div>
 					</div>
 

@@ -64,6 +64,10 @@ class anagrams:
     def get_time(self):
         return self.time
 
+    def shuffle(self):
+        self.hand.shuffle()
+        return self.get_hand()
+
 def generate_permutations(tiles, num):
     # Uses recursion to generate possible permutations
     if num == 1:

@@ -30,14 +30,19 @@ def game():
     typed_words = game_instance[0].get_used_words()
     num_typed = len(typed_words)
     if request.method == 'POST':
-        # add to database 
-        word = request.form['userTyped'].upper()
-        result = game_instance[0].score_word(word)
-        added_score = game_instance[0].get_score() - int(score)
-        score = str(game_instance[0].get_score())
-        typed_words = game_instance[0].get_used_words()
-        num_typed = len(typed_words)
-        return render_template("game.html", time=game_time - int(time.time()-session.get('start_time')), hand=hand, score=score, typed_words=typed_words[::-1], num_typed=num_typed, result=result, added_score=added_score)
+        # add to database
+        
+        if request.form['action'] == 'shuffle':
+            hand = game_instance[0].shuffle()
+            return render_template("game.html", time=game_time - int(time.time()-session.get('start_time')), hand=hand, score=score, typed_words=typed_words[::-1], num_typed=num_typed, result=3)
+        else:
+            word = request.form['input'].upper()
+            result = game_instance[0].score_word(word)
+            added_score = game_instance[0].get_score() - int(score)
+            score = str(game_instance[0].get_score())
+            typed_words = game_instance[0].get_used_words()
+            num_typed = len(typed_words)
+            return render_template("game.html", time=game_time - int(time.time()-session.get('start_time')), hand=hand, score=score, typed_words=typed_words[::-1], num_typed=num_typed, result=result, added_score=added_score)
     return render_template("game.html", time=game_time, hand=hand, score=score, typed_words=typed_words, num_typed=num_typed, result=3)
 
 @app.route("/endgame", methods=('GET', 'POST'))
@@ -47,7 +52,7 @@ def endgame():
     final_score = str(game_instance[0].get_score())
     all_words = game_instance[0].get_valid_words()
     
-    high_scores = check_high_scores(int(final_score), game_instance[0].get_hand())
+    high_scores, success = check_high_scores(int(final_score), game_instance[0].get_hand())
 
     words = list(all_words.keys())
     words.reverse()
@@ -56,4 +61,4 @@ def endgame():
     if len(words) > 10:
         shown_words = words[:10]
         hidden_words = words[10:]
-    return render_template("endgame.html", typed_words=typed_words, final_score=final_score, all_words=all_words, shown_words=shown_words, hidden_words=hidden_words,  num_typed=num_typed, high_scores=high_scores)
+    return render_template("endgame.html", typed_words=typed_words, final_score=final_score, all_words=all_words, shown_words=shown_words, hidden_words=hidden_words,  num_typed=num_typed, high_scores=high_scores, success=success)
