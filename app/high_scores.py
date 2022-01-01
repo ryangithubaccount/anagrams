@@ -27,5 +27,3 @@ def check_high_scores(score, letters):
             return scores[:5], i
     # i is the index of it
     return scores[:5], 5
-
-print(check_high_scores(5000, ['A']))

@@ -7,18 +7,24 @@ spec=importlib.util.spec_from_file_location("hand","app/hand.py")
 hand = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(hand)
 import time
+import json
 
 class anagrams:
     # A basic set-up of a anagrams game
-    def __init__(self, time, num_tiles):
-        self.word_list = word_list.word_list()
-        self.num_tiles = num_tiles
+    def __init__(self, time, num_tiles, my_word_list=word_list.word_list(), my_hand=None, score=0, used_words=[], valid_words=None):
         self.time = time
-        self.hand = hand.hand(num_tiles)
-        self.score = 0
-        self.used_words = []
-        self.valid_words = {}
-        self.generate_possible_words()
+        self.num_tiles = num_tiles
+        self.word_list = my_word_list
+        if not my_hand:
+            self.hand = hand.hand(num_tiles)
+        else:
+            self.hand = my_hand
+        self.score = score
+        self.used_words = used_words
+        self.valid_words = valid_words
+        if not self.valid_words:
+            self.valid_words = {}
+            self.generate_possible_words()
 
     def score_word(self, word):
         # 0 means invalid word, 1 means already used, 2 means valid word
@@ -65,8 +71,24 @@ class anagrams:
         return self.time
 
     def shuffle(self):
-        self.hand.shuffle()
-        return self.get_hand()
+        return self.hand.shuffle()
+
+    def to_json(self):
+        return json.dumps(self, default=lambda o: o.__dict__)
+
+    def return_self(self):
+        return self
+        
+
+def from_json(obj):
+    game_dict = json.loads(obj)
+
+    game_hand = hand.hand(0, game_dict['hand']['tiles'])
+    game_word_list = word_list.word_list(game_dict['word_list']['lists'])
+
+    game = anagrams(game_dict['time'], game_dict['num_tiles'], game_word_list, game_hand, game_dict['score'], game_dict['used_words'],
+                    game_dict['valid_words'])
+    return game.return_self()
 
 def generate_permutations(tiles, num):
     # Uses recursion to generate possible permutations
