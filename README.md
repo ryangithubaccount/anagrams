@@ -1,6 +1,12 @@
 # A**nagrams**
 
-**Goal:** Recreate the Anagrams game from GamePigeon in a Web Application
+## Try It Out
+
+You can play our deployed application directly from your browser here: http://word-scrambles.herokuapp.com/ 
+
+## About the Application
+
+**Goal:** Recreate the Anagrams game from GamePigeon in a web application.
 
 ### **Game Rules:**
 
@@ -15,7 +21,9 @@ Try to get as many valid Anagrams of the given letters as you can within the tim
 - Players can customize the number of letters, instead of the standard 6 letters
 - Since this is a web version, players can type faster on a keyboard vs tapping letters
 
-## Web Browser Version
+## Tinker Around for Yourself
+
+### Web Application Version
 
 Instructions to run and play it locally:
 
@@ -27,7 +35,7 @@ Instructions to run and play it locally:
 6. `flask run`
 7. Open [http://127.0.0.1:5000/](http://127.0.0.1:5000/) 
 
-## Pure Python Version
+### Pure Python Version
 
 Instructions to run and play it locally in the terminal:
 
